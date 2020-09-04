@@ -60,25 +60,24 @@ namespace RadixConversion
         // インデクサー
         public string this[int i]
         {
-            get { return nums[i]; }
-            private set { this.nums[i] = value; }
+            get => nums[i];
         }
 
 
         //setは基本的にクラス内でしか使用しない
         public List<string> Nums
         {
-            get { return this.nums; }
+            get =>this.nums;
         }
 
         public int Lower
         {
-            get { return this.lower; }
+            get =>this.lower;
         }
 
         public int Upper
         {
-            get { return this.upper; }
+            get => this.upper;
         }
 
 
