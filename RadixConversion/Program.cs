@@ -110,36 +110,29 @@ namespace RadixConversion
             //10進数
             Numbers numbers1 = new Numbers(1, 10);
 
-            //加算前 foreach版
-            foreach (string i in numbers1.Nums)
-            {
-                Console.WriteLine(i);
-            }
-
             var decimalNumbers = numbers1 + 2;
 
-            //加算後 foreach版
-            foreach(string i in decimalNumbers.Nums)
-            {
-                Console.WriteLine(i);
-            }
-
-            //加算後 for版
+            //for版
             for (int i = 0; i < 10; i++)
             {
                 Console.WriteLine(decimalNumbers[i]);
             }
 
+            //foreach版
+            foreach (string i in decimalNumbers.Nums)
+            {
+                Console.WriteLine(i);
+            }
+
+            //ForEach()版
+            decimalNumbers.Nums.ForEach(i => Console.WriteLine(i));
 
             //2進数
             Numbers binaryNumbers = new Numbers(1, 10);
 
             binaryNumbers.NumberConversion(BaseNumber.Binary);
 
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine(binaryNumbers[i]);
-            }
+            binaryNumbers.Nums.ForEach(i => Console.WriteLine(i));
 
 
             //8進数
@@ -149,10 +142,7 @@ namespace RadixConversion
 
             octalNumbers.NumberConversion(BaseNumber.Octal);
 
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine(octalNumbers[i]);
-            }
+            octalNumbers.Nums.ForEach(i => Console.WriteLine(i));
 
 
             //16進数
@@ -160,10 +150,7 @@ namespace RadixConversion
 
             hexadecimal.NumberConversion(BaseNumber.Hexadecimal);
 
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine(hexadecimal[i]);
-            }
+            hexadecimal.Nums.ForEach(i => Console.WriteLine(i));
         }
     }
 }
