@@ -43,9 +43,9 @@ namespace RadixConversion
 
             int upper = u.HasValue ? u.ToInt() : 10;
 
-            Lower = lower;
-            Upper = upper;
-            this.Nums = Enumerable.Range(lower, upper).Select(x => x.ToString()).ToList();
+            this.lower = lower;
+            this.upper = upper;
+            this.nums = Enumerable.Range(lower, upper).Select(x => x.ToString()).ToList();
         }
 
         private Numbers(Numbers numbers, int? i)
@@ -54,7 +54,7 @@ namespace RadixConversion
 
             var tmp = numbers.Nums.Select(x => Convert.ToInt32(x)).ToList();
 
-            this.Nums = tmp.Select(x => Convert.ToString(x * i)).ToList();
+            this.nums = tmp.Select(x => Convert.ToString(x * i)).ToList();
         }
 
         // インデクサー
@@ -69,19 +69,16 @@ namespace RadixConversion
         public List<string> Nums
         {
             get { return this.nums; }
-            private set { this.nums = value; }
         }
 
         public int Lower
         {
             get { return this.lower; }
-            private set { this.lower = value; }
         }
 
         public int Upper
         {
             get { return this.upper; }
-            private set { this.upper = value; }
         }
 
 
@@ -89,7 +86,7 @@ namespace RadixConversion
         public void NumberConversion(BaseNumber i)
         {
             var tmp = this.Nums.Select(x => Convert.ToInt32(x)).ToList();
-            this.Nums = tmp.Select(x => x.ToString(i)).ToList();
+            this.nums = tmp.Select(x => x.ToString(i)).ToList();
         }
 
         // 演算子オーバーロード
