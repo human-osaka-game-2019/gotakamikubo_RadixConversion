@@ -31,6 +31,7 @@ namespace RadixConversion
 
     }
 
+    //Listを作成し、Listの要素を基数変換するclass
     public class Numbers
     {
         private List<string> nums;
@@ -81,7 +82,7 @@ namespace RadixConversion
         }
 
 
-        //進数変換を行う
+        //基数変換を行う
         public void NumberConversion(BaseNumber i)
         {
             var tmp = this.Nums.Select(x => Convert.ToInt32(x)).ToList();
