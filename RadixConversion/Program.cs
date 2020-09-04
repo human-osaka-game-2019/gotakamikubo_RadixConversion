@@ -51,11 +51,7 @@ namespace RadixConversion
 
         private Numbers(Numbers numbers, int? i)
         {
-            int j = i.HasValue ? i.ToInt() : 1;
-
-            var tmp = numbers.Nums.Select(x => Convert.ToInt32(x)).ToList();
-
-            this.nums = tmp.Select(x => Convert.ToString(x * i)).ToList();
+            Multiply(numbers, i);
         }
 
         // インデクサー
@@ -87,6 +83,16 @@ namespace RadixConversion
         {
             var tmp = this.Nums.Select(x => Convert.ToInt32(x)).ToList();
             this.nums = tmp.Select(x => x.ToString(i)).ToList();
+        }
+
+        //Listの各要素に対して掛け算を行う
+        private void Multiply(Numbers numbers, int? i)
+        {
+            int j = i.HasValue ? i.ToInt() : 1;
+
+            var tmp = numbers.Nums.Select(x => Convert.ToInt32(x)).ToList();
+
+            this.nums = tmp.Select(x => Convert.ToString(x * i)).ToList();
         }
 
         // 演算子オーバーロード
