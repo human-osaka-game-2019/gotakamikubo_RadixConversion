@@ -82,7 +82,7 @@ namespace RadixConversion
 
 
         //基数変換を行う
-        public void NumberConversion(BaseNumber i)
+        public void ConvertRadix(BaseNumber i)
         {
             var tmp = this.Nums.Select(x => Convert.ToInt32(x)).ToList();
             this.Nums = tmp.Select(x => x.ToString(i)).ToList();
@@ -139,7 +139,7 @@ namespace RadixConversion
             //2進数
             Numbers binaryNumbers = new Numbers(1, 10);
 
-            binaryNumbers.NumberConversion(BaseNumber.Binary);
+            binaryNumbers.ConvertRadix(BaseNumber.Binary);
 
             binaryNumbers.Nums.ForEach(i => Console.WriteLine(i));
 
@@ -149,7 +149,7 @@ namespace RadixConversion
 
             var octalNumbers = numbers3 * 2;
 
-            octalNumbers.NumberConversion(BaseNumber.Octal);
+            octalNumbers.ConvertRadix(BaseNumber.Octal);
 
             octalNumbers.Nums.ForEach(i => Console.WriteLine(i));
 
@@ -157,7 +157,7 @@ namespace RadixConversion
             //16進数
             Numbers hexadecimal = new Numbers(1, 10);
 
-            hexadecimal.NumberConversion(BaseNumber.Hexadecimal);
+            hexadecimal.ConvertRadix(BaseNumber.Hexadecimal);
 
             hexadecimal.Nums.ForEach(i => Console.WriteLine(i));
         }
