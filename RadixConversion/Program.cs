@@ -35,18 +35,18 @@ namespace RadixConversion
     public class Numbers
     {
         private List<string> nums;
-        private int lower;
-        private int upper;
+        private int start;
+        private int count;
 
-        public Numbers(int? l ,int? u)
+        public Numbers(int? s ,int? c)
         {
-            int lower = l.HasValue ? l.ToInt() : 0;
+            int start = s.HasValue ? s.ToInt() : 0;
 
-            int upper = u.HasValue ? u.ToInt() : 10;
+            int count = c.HasValue ? c.ToInt() : 10;
 
-            this.Lower = lower;
-            this.Upper = upper;
-            this.Nums = Enumerable.Range(lower, upper).Select(x => x.ToString()).ToList();
+            this.Start = start;
+            this.Count = count;
+            this.Nums = Enumerable.Range(start, count).Select(x => x.ToString()).ToList();
         }
 
         private Numbers(Numbers numbers, int? i)
@@ -68,16 +68,16 @@ namespace RadixConversion
             private set => this.nums = value;
         }
 
-        public int Lower
+        public int Start
         {
-            get =>this.lower;
-            private set => this.lower = value;
+            get =>this.start;
+            private set => this.start = value;
         }
 
-        public int Upper
+        public int Count
         {
-            get => this.upper;
-            private set => this.Upper = value;
+            get => this.count;
+            private set => this.count = value;
         }
 
 
@@ -107,7 +107,7 @@ namespace RadixConversion
         //各要素にiを足す
         //進数変換前に使用すること
         public static Numbers operator +(Numbers numbers, int i) =>
-            new Numbers(numbers.Lower + i, numbers.Upper);
+            new Numbers(numbers.Start + i, numbers.Count);
 
     }
 
